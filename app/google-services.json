@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "49003235860",
+    "project_id": "l3gl-2c982",
+    "storage_bucket": "l3gl-2c982.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:49003235860:android:222f6fdf5d2ae6e80d7501",
+        "android_client_info": {
+          "package_name": "com.chrinovicmm.bookstore"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "49003235860-mh0cfo61oufp5e5i7prmr6n81o58l815.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRVhsGxmMbq4DIyHm6-H0Dinwkcvo37UY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "49003235860-mh0cfo61oufp5e5i7prmr6n81o58l815.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
