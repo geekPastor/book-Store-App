@@ -1,5 +1,6 @@
 package com.chrinovicmm.bookstore
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.chrinovicmm.bookstore.databinding.ActivityMainBinding
@@ -17,10 +18,12 @@ class MainActivity : AppCompatActivity() {
 
         binding.iconIv.setOnClickListener{
 
+            startActivity(Intent(this, LoginActivity::class.java))
         }
 
         binding.skipBtn.setOnClickListener {
 
+            startActivity(Intent(this, DashboardUserActivity::class.java))
         }
 
     }
