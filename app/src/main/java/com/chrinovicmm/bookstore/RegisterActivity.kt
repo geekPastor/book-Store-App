@@ -120,7 +120,7 @@ class RegisterActivity : AppCompatActivity() {
         hashMap["timestamp"] = timestamp
 
         //set data in the db
-        val ref = FirebaseDatabase.getInstance().getReference("users")
+        val ref = FirebaseDatabase.getInstance().getReference("Users")
         ref.child(uid!!)
             .setValue(hashMap)
             .addOnSuccessListener {

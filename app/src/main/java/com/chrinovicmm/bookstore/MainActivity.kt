@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
 
         //clique sur login
 
-        binding.loginBtn.setOnClickListener{
+        binding.iconIv.setOnClickListener{
 
             startActivity(Intent(this, LoginActivity::class.java))
         }
