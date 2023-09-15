@@ -14,18 +14,18 @@
         android:id="@+id/iconIv"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
-        android:src="@drawable/logo"/>
+        android:src="@drawable/logo" />
     
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/iconIv"
+        android:layout_below="@id/loginBtn"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:text="Bienvenue sur swakala"/>
-    
+
     <Button
-        android:id="@id/iconIv"
+        android:id="@+id/loginBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"

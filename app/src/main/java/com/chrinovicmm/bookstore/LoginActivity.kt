@@ -21,7 +21,7 @@ class LoginActivity : AppCompatActivity() {
 
 
     private lateinit var firebaseAuth: FirebaseAuth
-    private lateinit var progressDialog: ProgressDialog
+    //private lateinit var progressDialog: ProgressDialog
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
@@ -33,10 +33,10 @@ class LoginActivity : AppCompatActivity() {
         firebaseAuth = FirebaseAuth.getInstance()
 
         //init progress dialog while login
-        progressDialog = ProgressDialog(this)
+        //progressDialog = ProgressDialog(this)
 
-        progressDialog.setTitle("Veillez patienter")
-        progressDialog.setCanceledOnTouchOutside(false)
+        //progressDialog.setTitle("Veillez patienter")
+        //progressDialog.setCanceledOnTouchOutside(false)
 
 
         //handle not have account, click
@@ -75,8 +75,8 @@ class LoginActivity : AppCompatActivity() {
         //login
 
         //progress
-        progressDialog.setMessage("log in...")
-        progressDialog.show()
+        //progressDialog.setMessage("log in...")
+        //progressDialog.show()
 
         firebaseAuth.signInWithEmailAndPassword(email, password)
             .addOnSuccessListener {
@@ -84,7 +84,7 @@ class LoginActivity : AppCompatActivity() {
 
             }
             .addOnFailureListener{e->
-                progressDialog.dismiss()
+                //progressDialog.dismiss()
                 Toast.makeText(this, "la connexion n'a pas abouti du a ${e.message}", Toast.LENGTH_SHORT).show()
             }
     }
@@ -92,7 +92,7 @@ class LoginActivity : AppCompatActivity() {
     private fun checkUser() {
         //chek user role
 
-        progressDialog.setMessage("Checking...")
+        //progressDialog.setMessage("Checking...")
 
         val firebaseUser = firebaseAuth.currentUser!!
 
@@ -104,7 +104,7 @@ class LoginActivity : AppCompatActivity() {
                 }
 
                 override fun onDataChange(snapshot: DataSnapshot) {
-                    progressDialog.dismiss()
+                    //progressDialog.dismiss()
 
                     //get user role User/Admin
                     val userType = snapshot.child("").value
