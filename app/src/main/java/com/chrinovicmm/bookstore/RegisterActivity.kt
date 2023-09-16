@@ -17,7 +17,7 @@ class RegisterActivity : AppCompatActivity() {
 
 
     private lateinit var firebaseAuth: FirebaseAuth
-    //private lateinit var progressDialog: ProgressDialog
+    private lateinit var progressDialog: ProgressDialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,10 +29,10 @@ class RegisterActivity : AppCompatActivity() {
         firebaseAuth = FirebaseAuth.getInstance()
 
         //init progress dialog while login or register
-        //progressDialog = ProgressDialog(this)
+        progressDialog = ProgressDialog(this)
 
-        //progressDialog.setTitle("Veillez patienter")
-        //progressDialog.setCanceledOnTouchOutside(false)
+        progressDialog.setTitle("Veillez patienter")
+        progressDialog.setCanceledOnTouchOutside(false)
 
 
         //handle back button click
@@ -78,8 +78,8 @@ class RegisterActivity : AppCompatActivity() {
     private fun createUser() {
         //progress
 
-        //progressDialog.setMessage("Creation du compte....")
-        //progressDialog.show()
+        progressDialog.setMessage("Creation du compte....")
+        progressDialog.show()
 
         //create user
 
@@ -90,7 +90,7 @@ class RegisterActivity : AppCompatActivity() {
             }
             .addOnFailureListener{ e->
                 //failed creating user account
-                //progressDialog.dismiss()
+                progressDialog.dismiss()
                 Toast.makeText(this, "La creation du compte n'a pas abouti a cause de ${e.message}", Toast.LENGTH_SHORT).show()
 
             }
@@ -101,7 +101,7 @@ class RegisterActivity : AppCompatActivity() {
     private fun updateUserInfo() {
         //save user date in the data base
 
-        //progressDialog.setMessage("Enregisterment en cours...")
+        progressDialog.setMessage("Enregisterment en cours...")
 
 
         val timestamp = System.currentTimeMillis()
@@ -125,13 +125,13 @@ class RegisterActivity : AppCompatActivity() {
             .setValue(hashMap)
             .addOnSuccessListener {
                 //add user inf in the data base
-                //progressDialog.dismiss()
+                progressDialog.dismiss()
                 Toast.makeText(this, "Compte creer avec succes", Toast.LENGTH_SHORT).show()
                 startActivity(Intent(this@RegisterActivity, DashboardUserActivity::class.java))
                 finish()
             }
             .addOnFailureListener{ e->
-                //progressDialog.dismiss()
+                progressDialog.dismiss()
                 Toast.makeText(this, "La creation du compte n'a pas abouti a cause de ${e.message}", Toast.LENGTH_SHORT).show()
             }
     }
