@@ -81,6 +81,7 @@ class LoginActivity : AppCompatActivity() {
         firebaseAuth.signInWithEmailAndPassword(email, password)
             .addOnSuccessListener {
                 checkUser()
+
             }
             .addOnFailureListener{e->
                 progressDialog.dismiss()
@@ -106,7 +107,7 @@ class LoginActivity : AppCompatActivity() {
                     progressDialog.dismiss()
 
                     //get user role User/Admin
-                    val userType = snapshot.child("").value
+                    val userType = snapshot.child("userType").value
                     if (userType == "user"){
                         //simple user
                         startActivity(Intent(this@LoginActivity, DashboardUserActivity::class.java))
