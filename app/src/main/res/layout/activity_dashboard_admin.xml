@@ -65,7 +65,7 @@
 
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/categories"
+        android:id="@+id/categoriesRv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@id/bottomLL"
