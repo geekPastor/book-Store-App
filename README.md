@@ -1,4 +1,4 @@
-# SAKALA
+# SWAKALA
 
 ## Présentation du projet
 
