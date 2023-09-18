@@ -1,8 +1,6 @@
 package com.chrinovicmm.bookstore
 
 import android.app.Activity
-import android.app.Application
-import android.app.Instrumentation.ActivityResult
 import android.app.ProgressDialog
 import android.content.Intent
 import android.net.Uri
@@ -10,8 +8,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
-import androidx.activity.result.ActivityResultCallback
-import androidx.activity.result.contract.ActivityResultContract
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import com.chrinovicmm.bookstore.databinding.ActivityPdfAddBinding
@@ -22,8 +18,6 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
-import java.lang.StringBuilder
-import kotlin.math.log
 
 class PdfAddActivity : AppCompatActivity() {
     private lateinit var binding: ActivityPdfAddBinding
@@ -217,16 +211,16 @@ class PdfAddActivity : AppCompatActivity() {
     }
 
     val pdfActivityResultLauncher = registerForActivityResult(
-        ActivityResultContracts.StartActivityForResult(),
-        ActivityResultCallback<ActivityResult>{result->
-            if (result.resultCode == RESULT_OK){
-                Log.d(TAG, "PDF Picked: ")
-                pdfUri = result.data!!.data
-            }
-            else{
-                Log.d(TAG, "PDF Picked: ")
-                Toast.makeText(this, "Canceled", Toast.LENGTH_SHORT).show()
-            }
+        ActivityResultContracts.StartActivityForResult()
+    ) { result ->
+        if (result.resultCode == Activity.RESULT_OK) {
+            Log.d(TAG, "PDF Picked:")
+            val data: Intent? = result.data
+            val pdfUri: Uri? = data?.data
+            // Utilisez pdfUri comme nécessaire
+        } else {
+            Log.d(TAG, "PDF Picked:")
+            Toast.makeText(this, "Annulé", Toast.LENGTH_SHORT).show()
         }
-    )
+    }
 }
