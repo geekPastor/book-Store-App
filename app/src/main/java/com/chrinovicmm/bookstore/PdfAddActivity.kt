@@ -59,6 +59,10 @@ class PdfAddActivity : AppCompatActivity() {
         binding.submitBtn.setOnClickListener {
             validateData()
         }
+
+            binding.backBtn.setOnClickListener {
+                onBackPressed()
+            }
     }
 
     private var title = ""
@@ -136,6 +140,23 @@ class PdfAddActivity : AppCompatActivity() {
         hashMap["timestamp"] = timestamp
         hashMap["viewCount"] = 0
         hashMap["downloadsCount"] = 0
+
+
+        val ref = FirebaseDatabase.getInstance().getReference("Books")
+        ref.child("timestamp")
+            .setValue(hashMap)
+            .addOnSuccessListener {
+                Log.d(TAG, "uploadPdfInfoToDb: chargement dans la bdd")
+
+                progressDialog.dismiss()
+                Toast.makeText(this, "Charger...", Toast.LENGTH_SHORT).show()
+                pdfUri = null
+            }
+            .addOnFailureListener{e->
+                Log.d(TAG, "Echec du chargement de la ressource du a ${e.message}")
+                progressDialog.dismiss()
+                Toast.makeText(this, "Echec du chargement de la ressource du a ${e.message}", Toast.LENGTH_SHORT).show()
+            }
     }
 
     private fun laodPdfCategories() {
